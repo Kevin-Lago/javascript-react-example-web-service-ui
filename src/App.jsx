@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Switch, Route } from "react-router-dom";
-import { getCurrentUser } from '../util/APIUtils';
-import { ACCESS_TOKEN } from '../constants';
+import { getCurrentUser } from './util/APIUtils';
+import { ACCESS_TOKEN } from './constants';
 import './App.css';
 import SciFiScreen from './components/login/SciFiScreen';
 
