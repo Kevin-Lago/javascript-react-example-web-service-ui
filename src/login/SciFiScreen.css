@@ -1,5 +1,5 @@
 .sci-fi-screen-wrapper {
-    /* background-color: var(--background-color); */
+    background-color: var(--background-color);
     width: 320px;
     aspect-ratio: 320 / 520;
 }
@@ -8,11 +8,12 @@
     position: absolute;
     display: grid;
     grid-template-columns: 1fr;
-    border: 3px solid rgb(var(--primary-color));
-    width: 300px;
+    /* border: 3px solid rgb(var(--primary-color)); */
+    width: 304px;
+    height: 494px;
     border-radius: 1rem;
-    /* background-color: rgb(var(--primary-color)); */
-    background-color: var(--background-color);
+    background-color: rgb(var(--primary-color));
+    /* background-color: var(--background-color); */
     aspect-ratio: 320 / 520;
     grid-row-start: 1;
     grid-column-start: 1;
@@ -24,52 +25,49 @@
     animation: container-stack 220ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), container-glitch 2s ease infinite 2s alternate-reverse;
 }
 
-.sci-fi-screen:nth-child(0) {
-    --stack-height: calc(100% / var(--stacks) - 1px);
-    --inverse-index: calc(calc(var(--stacks) - 1) - var(--index));
-    --clip-top: calc(var(--stack-height) * var(--index));
-    --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
-    clip-path: inset(var(--clip-top) -10px var(--clip-bottom) -10px);
-}
-
-.sci-fi-screen-outer-upper-trapezoid,
-.sci-fi-screen-outer-lower-trapezoid {
+.sci-fi-screen-internal {
     position: absolute;
-    left: calc(50% - 50px);
-    z-index: 11;
-    width: 100px;
-    height: 8px;
+    top: 2px;
+    left: 2px;
+    width: calc(100% - 4px);
+    height: calc(100% - 4px);
+    /* aspect-ratio: 320 / 520; */
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-row-start: 1;
+    grid-column-start: 1;
     background-color: var(--background-color);
+    border-radius: 1rem;
 }
 
-.sci-fi-screen-outer-upper-trapezoid {
-    top: -4px;
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+.sci-fi-screen:nth-child(odd) {
+    /* transform: scale(0.8); */
+    --glitch-translate: 8px;
 }
 
-.sci-fi-screen-outer-lower-trapezoid {
-    bottom: -4px;
-    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+.sci-fi-screen:nth-child(odd)::after {
+    transform: scale(0.8);
 }
 
-.sci-fi-screen-inner-upper-trapezoid,
-.sci-fi-screen-inner-lower-trapezoid {
-    position: absolute;
-    left: calc(50% - 54px);
-    z-index: 10;
-    width: 108px;
-    height: 10px;
-    background-color: rgb(var(--primary-color));
+.sci-fi-screen:nth-child(even) {
+    /* transform: scale(0.6); */
+    --glitch-translate: -8px;
 }
 
-.sci-fi-screen-inner-upper-trapezoid {
-    top: -3px;
-    clip-path: polygon(0 0, 100% 0, 90% 100%, 10% 100%);
+.sci-fi-screen:first-child {
+    clip-path: polygon(0 0, calc(50% - 64px) 0, calc(50% - 54px) 8px, 50% 8px, calc(50% + 54px) 8px, calc(50% + 64px) 0, 100% 0, 100% var(--stack-height), 0 var(--stack-height), 0 0);
 }
 
-.sci-fi-screen-inner-lower-trapezoid {
-    bottom: -3px;
-    clip-path: polygon(10% 0, 90% 0, 100% 100%, 0 100%);
+.sci-fi-screen:first-child>.sci-fi-screen-internal {
+    clip-path: polygon(0 0, calc(50% - 66px) 0, calc(50% - 56px) 8px, 50% 8px, calc(50% + 56px) 8px, calc(50% + 66px) 0, 100% 0, 100% var(--stack-height), 0 var(--stack-height), 0 0);
+}
+
+.sci-fi-screen:last-child {
+    clip-path: polygon(0 var(--clip-top), 0 100%, calc(50% - 64px) 100%, calc(50% - 54px) calc(100% - 8px), 50% calc(100% - 8px), calc(50% + 54px) calc(100% - 8px), calc(50% + 64px) 100%, 100% 100%, 100% var(--clip-top));
+}
+
+.sci-fi-screen:last-child>.sci-fi-screen-internal {
+    clip-path: polygon(0 var(--clip-top), 0 100%, calc(50% - 66px) 100%, calc(50% - 56px) calc(100% - 8px), 50% calc(100% - 8px), calc(50% + 56px) calc(100% - 8px), calc(50% + 66px) 100%, 100% 100%, 100% var(--clip-top));
 }
 
 @keyframes container-stack {
@@ -210,20 +208,6 @@
     }
 }
 
-.sci-fi-screen:nth-child(odd) {
-    /* transform: scale(0.8); */
-    --glitch-translate: 8px;
-}
-
-.sci-fi-screen:nth-child(odd)::after {
-    transform: scale(0.8);
-}
-
-.sci-fi-screen:nth-child(even) {
-    /* transform: scale(0.6); */
-    --glitch-translate: -8px;
-}
-
 .sci-fi-screen-content {
     margin: 10px;
     overflow: hidden;
@@ -311,6 +295,9 @@
 }
 
 .sci-fi-screen-login {
+    position: relative;
+    z-index: 1000;
+    /* top: 3rem; */
     margin-top: 16px;
     height: 100%;
     width: 100%;
@@ -324,10 +311,12 @@
     transition: .2s;
     margin: 4px;
     border-radius: .8rem;
-    background-color: red;
+    /* background-color: red; */
+    border-bottom: 2px solid rgb(var(--primary-color) / 25%);
 }
 
 .sci-fi-screen-login-field-input {
+    color: var(--text-color);
     opacity: .7;
     transition: .2s;
     height: 100%;
@@ -336,12 +325,27 @@
     padding-top: 8px;
     background: none;
     outline: none;
-    border-bottom: 2px solid white;
-    border-color: transparent;
+}
+
+.sci-fi-screen-login-field-input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--text-color);
+    opacity: .8;
+}
+
+.sci-fi-screen-login-field-input:-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    color: red;
+}
+
+.sci-fi-screen-login-field-input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: red;
 }
 
 .sci-fi-screen-login-options {
     /* display: none; */
+    z-index: 1000;
     height: auto;
     width: 100%;
 }
@@ -391,10 +395,18 @@
     margin: 4px;
     height: 32px;
     width: 32px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .sci-fi-screen-login-login-button-wrapper {
     width: 100%;
+    cursor: pointer;
+    width: calc(100% - 8px);
+    margin: 4px;
+    height: 40px;
+    border-radius: .8rem;
 }
 
 .sci-fi-screen-login-login-button,
