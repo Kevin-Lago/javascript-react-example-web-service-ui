@@ -5,6 +5,7 @@ import { ACCESS_TOKEN } from './constants';
 import './App.css';
 import SciFiScreen from './login/SciFiScreen';
 import Home from './home/Home';
+import PrivateRoute from './util/PrivateRoute';
 
 export default class App extends Component {
     constructor(props) {
@@ -49,7 +50,7 @@ export default class App extends Component {
             <div className='app'>
                 <BrowserRouter>
                     <Routes>
-                        <Route path="/" element={<Home />} />
+                        <PrivateRoute path="/" element={<Home />} authenticated={this.state.authenticated} currentUser={this.state.currentUser} />
                         <Route path="/login" element={<SciFiScreen title="Login" screenStack={6} />} />
                     </Routes>
                 </BrowserRouter>
