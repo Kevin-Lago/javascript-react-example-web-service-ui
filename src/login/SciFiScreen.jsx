@@ -38,13 +38,13 @@ const Screen = (i, title) => (
                 </div>
                 <br />
                 <div className='sci-fi-screen-login-signup-button'>
-                    <button className='sci-fi-screen-login-login-button'>
+                    <button className='sci-fi-screen-login-signup-button'>
                         Sign Up
                     </button>
                 </div>
             </div>
             <div className='sci-fi-screen-login-options'>
-                <a className='sci-fi-screen-login-option' href="/oauth2/authorization/github">
+                <a className='sci-fi-screen-login-option' href="/oauth2/authorization/github?redirect_uri=http://localhost:3000/oauth2/redirect">
                     <div className='sci-fi-screen-icon'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
@@ -80,15 +80,18 @@ export default class SciFiScreen extends Component {
 
         this.l = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
         this.letters = "abcdefghijklmnopqrstuvwxyz";
-        this.ttp = [
-            "This is some Text To Print",
-            "Here's another line.",
-            "Wow"
-        ];
     }
 
     componentDidMount() {
         this.spans = document.querySelectorAll(".sci-fi-screen-title");
+
+        // let inputs = document.querySelectorAll(".sci-fi-screen-login-field-wrapper");
+        // console.log(inputs)
+
+        // for (let i = 2; i < inputs.length; i++) {
+        //     inputs[i].style.display = "none"
+        //     console.log(inputs[i])
+        // }
     }
 
     handleMouseEnter() {
@@ -118,14 +121,6 @@ export default class SciFiScreen extends Component {
 
             iteration += 1 / 3;
         }, 30);
-    }
-
-    typeWriter() {
-        this.ttp = [
-            "This is some Text To Print",
-            "Here's another line.",
-            "Wow"
-        ]
     }
 
     render() {
