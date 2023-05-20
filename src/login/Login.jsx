@@ -3,6 +3,10 @@ import { Navigate } from 'react-router-dom';
 import SciFiScreen from './SciFiScreen';
 
 export default class Login extends Component {
+    componentDidMount() {
+        console.log(this.props.location)
+    }
+
     render() {
         console.log(this.props)
         if (this.props.authenticated) {

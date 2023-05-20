@@ -324,6 +324,7 @@
     transition: .2s;
     margin: 4px;
     border-radius: .8rem;
+    background-color: red;
 }
 
 .sci-fi-screen-login-field-input {
@@ -331,7 +332,8 @@
     transition: .2s;
     height: 100%;
     width: 100%;
-    font-size: 1em;
+    font-size: .8em;
+    padding-top: 8px;
     background: none;
     outline: none;
     border-bottom: 2px solid white;
@@ -395,10 +397,13 @@
     width: 100%;
 }
 
-.sci-fi-screen-login-login-button {
+.sci-fi-screen-login-login-button,
+.sci-fi-screen-login-signup-button {
     cursor: pointer;
     width: calc(100% - 8px);
     margin: 4px;
+    height: 40px;
+    border-radius: .8rem;
 }
 
 br {
