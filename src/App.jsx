@@ -50,7 +50,8 @@ export default class App extends Component {
             <div className='app'>
                 <BrowserRouter>
                     <Routes>
-                        <PrivateRoute path="/" element={<Home />} authenticated={this.state.authenticated} currentUser={this.state.currentUser} />
+                        <Route path="/" element={<PrivateRoute><Home authenticated={this.state.authenticated} currentUser={this.state.currentUser} /></PrivateRoute>} />
+                        {/* <PrivateRoute path="/" element={<Home />} authenticated={this.state.authenticated} currentUser={this.state.currentUser} /> */}
                         <Route path="/login" element={<SciFiScreen title="Login" screenStack={6} />} />
                     </Routes>
                 </BrowserRouter>
