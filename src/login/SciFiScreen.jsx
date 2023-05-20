@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { GOOGLE_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../constants';
 import './SciFiScreen.css';
 
 const Screen = (i, title) => (
@@ -44,7 +45,10 @@ const Screen = (i, title) => (
                 </div>
             </div>
             <div className='sci-fi-screen-login-options'>
-                <a className='sci-fi-screen-login-option' href="/oauth2/authorization/github?redirect_uri=http://localhost:3000/oauth2/redirect">
+                <a className='sci-fi-screen-login-option' href={GITHUB_AUTH_URL}
+                // "/oauth2/authorization/github?redirect_uri=http://localhost:3000/oauth2/redirect"
+
+                >
                     <div className='sci-fi-screen-icon'>
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                             {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
