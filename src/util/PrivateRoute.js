@@ -4,7 +4,7 @@ import {
 } from 'react-router-dom';
 
 function PrivateRoute({ element: Element, authenticated, ...rest }) {
-    return authenticated ? <Element /> : <Navigate to="/login" />
+    return authenticated ? <Element {...rest} /> : <Navigate to="/login" />
 
     // if (authenticated) {
     //     return props => <Element {...rest} {...props} />
