@@ -18,7 +18,7 @@ export default class Login extends Component {
         }
 
         return (
-            <SciFiScreen title="Login" screenStack={6} />
+            <SciFiScreen title="Login" screenStack={5} />
         )
     }
 }
