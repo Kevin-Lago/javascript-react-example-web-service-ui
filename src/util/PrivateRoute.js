@@ -1,23 +1,34 @@
 import React from 'react';
 import {
-    Route,
-    Redirect
+    Navigate
 } from 'react-router-dom';
 
-const PrivateRoute = ({ element: Element, authenticated, ...rest }) => (
-    <Route
-        {...rest}
-        render={props =>
-            authenticated ? (
-                <Element {...rest} {...props} />) : (
-                <Redirect to={{
-                    pathname: '/login',
-                    state: { from: props.location }
-                }}
-                />
-            )
-        }
-    />
-);
+function PrivateRoute({ element: Element, authenticated, ...rest }) {
+    return authenticated ? <Element /> : <Navigate to="/login" />
+
+    // if (authenticated) {
+    //     return props => <Element {...rest} {...props} />
+    //     // return <Element {...rest} {...props}/>
+    // }
+
+    // return props => <Navigate to={{
+    //     pathname: '/login',
+    //     state: { from: props.location }
+    // }}
+    // />
+    // <Route
+    //     {...rest}
+    //     render={props =>
+    //         authenticated ? 
+    //             <Element {...rest} {...props} /> :
+    //             <Navigate to={{
+    //                 pathname: '/login',
+    //                 state: { from: props.location }
+    //             }}
+    //             />
+
+    //     }
+    // />
+};
 
 export default PrivateRoute;
