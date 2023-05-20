@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import { Switch, Route } from "react-router-dom";
-import { getCurrentUser } from './util/APIUtils';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { getCurrentUser } from './util/APIUtil';
 import { ACCESS_TOKEN } from './constants';
 import './App.css';
-import SciFiScreen from './components/login/SciFiScreen';
+import SciFiScreen from './login/SciFiScreen';
+import Home from './home/Home';
 
 export default class App extends Component {
     constructor(props) {
@@ -46,10 +47,12 @@ export default class App extends Component {
     render() {
         return (
             <div className='app'>
-                <Switch>
-                    <Route path="/" />
-                    <Route path="/login" element={<SciFiScreen title="Login" screenStack={6} />} />
-                </Switch>
+                <BrowserRouter>
+                    <Routes>
+                        <Route path="/" element={<Home />} />
+                        <Route path="/login" element={<SciFiScreen title="Login" screenStack={6} />} />
+                    </Routes>
+                </BrowserRouter>
             </div>
         )
     }
