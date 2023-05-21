@@ -1,6 +1,5 @@
 .sci-fi-screen-wrapper {
-    background-color: var(--background-color);
-    width: 320px;
+    width: 320;
     aspect-ratio: 320 / 520;
 }
 
@@ -26,7 +25,7 @@
 }
 
 .sci-fi-screen-internal {
-    position: absolute;
+    position: relative;
     top: 2px;
     left: 2px;
     width: calc(100% - 4px);
@@ -55,7 +54,7 @@
 }
 
 .sci-fi-screen:first-child {
-    clip-path: polygon(0 0, calc(50% - 64px) 0, calc(50% - 54px) 8px, 50% 8px, calc(50% + 54px) 8px, calc(50% + 64px) 0, 100% 0, 100% var(--stack-height), 0 var(--stack-height), 0 0);
+    clip-path: polygon(0 0, calc(50% - 64px) 0, calc(50% - 54px) 8px, 50% 8px, calc(50% + 54px) 8px, calc(50% + 64px) 0, 100% 0, 100% calc(var(--stack-height) + 1px), 0 calc(var(--stack-height) + 1px), 0 0);
 }
 
 .sci-fi-screen:first-child>.sci-fi-screen-internal {
@@ -209,6 +208,9 @@
 }
 
 .sci-fi-screen-content {
+    /* position: ; */
+    display: block;
+    z-index: 1000;
     margin: 10px;
     overflow: hidden;
     max-width: 280px;
@@ -298,16 +300,16 @@
     position: relative;
     z-index: 1000;
     /* top: 3rem; */
-    margin-top: 16px;
-    height: 100%;
+    margin-top: 24px;
+    height: auto;
     width: 100%;
     z-index: 1000;
 }
 
 .sci-fi-screen-login-field-wrapper {
     display: flex;
-    justify-content: center;
-    align-items: flex-start;
+    justify-content: flex-start;
+    align-items: center;
     transition: .2s;
     margin: 4px;
     border-radius: .8rem;
@@ -316,15 +318,25 @@
 }
 
 .sci-fi-screen-login-field-input {
+    /* position: absolute; */
+    bottom: 0;
     color: var(--text-color);
+    border-width: 0;
     opacity: .7;
     transition: .2s;
-    height: 100%;
+    height: 38px;
+    line-height: 100%;
     width: 100%;
     font-size: .8em;
-    padding-top: 8px;
-    background: none;
-    outline: none;
+    margin: 0;
+    margin-top: 2px;
+    /* padding-top: 100%; */
+    /* background-color: blue; */
+    border-radius: 1rem;
+    border-color: transparent;
+    background-color: transparent;
+    /* background: none;
+    outline: none; */
 }
 
 .sci-fi-screen-login-field-input::placeholder {
@@ -344,21 +356,15 @@
 }
 
 .sci-fi-screen-login-options {
-    /* display: none; */
+    position: absolute;
+    bottom: 12px;
     z-index: 1000;
-    height: auto;
-    width: 100%;
+    width: calc(100% - 22px);
 }
 
-/* .sci-fi-screen-login-options:nth-child(0) {
-    display: block;
-} */
 
 .sci-fi-screen-login-option {
-    /* display: none; */
     opacity: 0.7;
-    /* z-index: 1000; */
-    /* width: 100%; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -367,13 +373,6 @@
     margin: 4px;
     border-radius: .8rem;
 }
-
-/* .sci-fi-screen:nth-child(6)>.sci-fi-screen-content>.sci-fi-screen-login-options>.sci-fi-screen-login-option {
-    background-color: red;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-} */
 
 .sci-fi-screen-login-option:hover {
     opacity: 1;
@@ -400,11 +399,10 @@
     align-items: center;
 }
 
-.sci-fi-screen-login-login-button-wrapper {
+.sci-fi-screen-login-button-wrapper {
     width: 100%;
     cursor: pointer;
-    width: calc(100% - 8px);
-    margin: 4px;
+    width: 100%;
     height: 40px;
     border-radius: .8rem;
 }
@@ -418,7 +416,8 @@
     border-radius: .8rem;
 }
 
-br {
+.sci-fi-screen-login-or-spacer {
     width: 100%;
-    border-bottom: 1px solid black;
+    height: 16px;
+    border-bottom: 3px solid black;
 }

@@ -24,7 +24,7 @@ const Screen = (i, title) => (
                     </div>
                     <div className='sci-fi-screen-login-field-wrapper'>
                         <div className='sci-fi-screen-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
                                 <path d="M144 144v48H304V144c0-44.2-35.8-80-80-80s-80 35.8-80 80zM80 192V144C80 64.5 144.5 0 224 0s144 64.5 144 144v48h16c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V256c0-35.3 28.7-64 64-64H80z" />
                             </svg>
@@ -36,18 +36,17 @@ const Screen = (i, title) => (
                             Log In
                         </button>
                     </div>
-                    <br />
+                    {/* <div className='sci-fi-screen-login-or-spacer'>
+
+                    </div>
                     <div className='sci-fi-screen-login-button-wrapper'>
                         <button className='sci-fi-screen-login-signup-button'>
                             Sign Up
                         </button>
-                    </div>
+                    </div> */}
                 </div>
                 <div className='sci-fi-screen-login-options'>
-                    <a className='sci-fi-screen-login-option' href={GITHUB_AUTH_URL}
-                    // "/oauth2/authorization/github?redirect_uri=http://localhost:3000/oauth2/redirect"
-
-                    >
+                    <a className='sci-fi-screen-login-option' href={GITHUB_AUTH_URL}>
                         <div className='sci-fi-screen-icon'>
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
@@ -58,9 +57,9 @@ const Screen = (i, title) => (
                             Continue with GitHub
                         </div>
                     </a>
-                    <a className='sci-fi-screen-login-option' href="">
+                    <a className='sci-fi-screen-login-option' href={GOOGLE_AUTH_URL}>
                         <div className='sci-fi-screen-icon'>
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
                                 {/* <!--! Font Awesome Pro 6.4.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --> */}
                                 <path d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z" />
                             </svg>
@@ -87,12 +86,10 @@ export default class SciFiScreen extends Component {
     componentDidMount() {
         this.spans = document.querySelectorAll(".sci-fi-screen-title");
 
-        // let logins = document.querySelectorAll(".sci-fi-screen-login");
-        // let socialOptions = document.querySelectorAll(".sci-fi-screen-login-options");
-        // console.log(socialOptions)
+        let content = document.querySelectorAll(".sci-fi-screen-content");
 
-        // for (let i = 1; i < logins.length; i++) {
-        //     logins[i].style.display = "none"
+        // for (let i = 1; i < content.length; i++) {
+        //     content[i].style.display = "none"
         // }
     }
 
