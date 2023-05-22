@@ -1,6 +1,7 @@
 .sci-fi-screen-wrapper {
     width: 320;
     aspect-ratio: 320 / 520;
+    box-shadow: 30px 30px 0 rgb(var(--primary-color));
 }
 
 .sci-fi-screen {
@@ -21,7 +22,7 @@
     --clip-top: calc(var(--stack-height) * var(--index));
     --clip-bottom: calc(var(--stack-height) * var(--inverse-index));
     clip-path: inset(var(--clip-top) -10px var(--clip-bottom) -10px);
-    animation: container-stack 220ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), container-glitch 2s ease infinite 2s alternate-reverse;
+    /* animation: container-stack 220ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), container-glitch 2s ease infinite 2s alternate-reverse; */
 }
 
 .sci-fi-screen-internal {
@@ -42,6 +43,7 @@
 .sci-fi-screen:nth-child(odd) {
     /* transform: scale(0.8); */
     --glitch-translate: 8px;
+    animation: container-glitch-enter-1 220ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), container-glitch-1 2s ease infinite 2s alternate-reverse;
 }
 
 .sci-fi-screen:nth-child(odd)::after {
@@ -51,6 +53,7 @@
 .sci-fi-screen:nth-child(even) {
     /* transform: scale(0.6); */
     --glitch-translate: -8px;
+    animation: container-glitch-enter-2 220ms cubic-bezier(.46, .29, 0, 1.24) 1 backwards calc(var(--index) * 120ms), container-glitch-2 2s ease infinite 2s alternate-reverse;
 }
 
 .sci-fi-screen:first-child {
@@ -69,7 +72,7 @@
     clip-path: polygon(0 var(--clip-top), 0 100%, calc(50% - 66px) 100%, calc(50% - 56px) calc(100% - 8px), 50% calc(100% - 8px), calc(50% + 56px) calc(100% - 8px), calc(50% + 66px) 100%, 100% 100%, 100% var(--clip-top));
 }
 
-@keyframes container-stack {
+@keyframes container-glitch-enter-1 {
     0% {
         opacity: 0;
         transform: translateX(-50%);
@@ -94,7 +97,32 @@
     }
 }
 
-@keyframes container-glitch {
+@keyframes container-glitch-enter-2 {
+    0% {
+        opacity: 0;
+        transform: translateX(-50%);
+        box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+    }
+
+    ;
+
+    60% {
+        opacity: 0.5;
+        transform: translateX(50%);
+    }
+
+    80% {
+        transform: none;
+        opacity: 1;
+        box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+    }
+
+    100% {
+        box-shadow: none;
+    }
+}
+
+@keyframes container-glitch-1 {
     0% {
         box-shadow: -2px 3px 0 red, 2px -3px 0 blue;
         transform: translate(var(--glitch-translate));
@@ -102,6 +130,23 @@
 
     1% {
         box-shadow: 2px -3px 0 red, -2px 3px 0 blue;
+    }
+
+    2%,
+    100% {
+        box-shadow: none;
+        transform: none;
+    }
+}
+
+@keyframes container-glitch-2 {
+    0% {
+        box-shadow: -2px 3px 0 green, 2px -3px 0 hotpink;
+        transform: translate(var(--glitch-translate));
+    }
+
+    1% {
+        box-shadow: 2px -3px 0 green, -2px 3px 0 hotpink;
     }
 
     2%,
