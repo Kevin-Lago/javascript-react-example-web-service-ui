@@ -2,6 +2,7 @@
   --background-color: #060608;
   --text-color: #FAFAFA;
   --primary-color: 200 100 0;
+  --secondary-color: 0 100 0;
   /* --call-to-action: 0 0 255; */
   --image-hue-rotate: 20deg;
   --black: #060608;
@@ -13,6 +14,12 @@ body {
   overflow: hidden;
   /* font-family: roboto; */
   /* background-color: var(--background-color); */
+}
+
+button,
+input {
+  border-color: transparent;
+  background-color: transparent;
 }
 
 .app {

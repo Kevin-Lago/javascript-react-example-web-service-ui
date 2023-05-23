@@ -275,6 +275,28 @@
     display: grid;
     grid-template-columns: 1fr;
     width: 100%;
+    border-radius: 1rem;
+    transition: .2s;
+}
+
+.sci-fi-screen-title-wrapper>svg {
+    position: absolute;
+    margin: 8px;
+    padding-top: 4px;
+    height: 54px;
+    fill: none;
+    stroke: rgb(var(--primary-color) / .15);
+    stroke-width: 2px;
+    border-radius: 1rem;
+    /* top: 2px; */
+}
+
+.sci-fi-screen-title-wrapper>svg:first-child {
+    left: 8px;
+}
+
+.sci-fi-screen-title-wrapper>svg:last-child {
+    right: 8px;
 }
 
 .sci-fi-screen-title-wrapper span {
@@ -356,10 +378,15 @@
     justify-content: flex-start;
     align-items: center;
     transition: .2s;
+    opacity: .7;
     margin: 4px;
     border-radius: .8rem;
     /* background-color: red; */
     border-bottom: 2px solid rgb(var(--primary-color) / 25%);
+}
+
+.sci-fi-screen-login-field-wrapper:hover {
+    opacity: 1;
 }
 
 .sci-fi-screen-login-field-input {
@@ -377,7 +404,7 @@
     margin-top: 2px;
     /* padding-top: 100%; */
     /* background-color: blue; */
-    border-radius: 1rem;
+    border-radius: 0 1rem 1rem 0;
     border-color: transparent;
     background-color: transparent;
     /* background: none;
@@ -392,12 +419,14 @@
 
 .sci-fi-screen-login-field-input:-ms-input-placeholder {
     /* Internet Explorer 10-11 */
-    color: red;
+    color: var(--text-color);
+    opacity: .8;
 }
 
 .sci-fi-screen-login-field-input::-ms-input-placeholder {
     /* Microsoft Edge */
-    color: red;
+    color: var(--text-color);
+    opacity: .8;
 }
 
 .sci-fi-screen-login-options {
@@ -447,9 +476,20 @@
 .sci-fi-screen-login-button-wrapper {
     width: 100%;
     cursor: pointer;
-    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: calc(100% - 8px);
     height: 40px;
     border-radius: .8rem;
+    opacity: 0.7;
+    background-color: rgb(var(--primary-color) / 25%);
+    transition: .2s;
+    margin: 4px;
+}
+
+.sci-fi-screen-login-button-wrapper:hover {
+    opacity: 1;
 }
 
 .sci-fi-screen-login-login-button,
@@ -459,6 +499,9 @@
     margin: 4px;
     height: 40px;
     border-radius: .8rem;
+    color: var(--text-color);
+    font-size: 1em;
+    letter-spacing: 2px;
 }
 
 .sci-fi-screen-login-or-spacer {

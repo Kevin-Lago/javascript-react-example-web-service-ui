@@ -8,9 +8,15 @@ const Screen = (i, title) => (
             <div className='sci-fi-screen-image'></div>
             <div className="sci-fi-screen-content flex-start-start">
                 <div className='sci-fi-screen-title-wrapper flex-center-center' style={{ "--stacks": "3" }}>
+                    <svg viewBox='0 0 64 64'>
+                        <path d="M0 0 L16 16 L16 48 L0 64" />
+                    </svg>
                     <span data-value={title} className='sci-fi-screen-title' style={{ "--index": "0" }}>{title}</span>
                     <span data-value={title} className='sci-fi-screen-title' style={{ "--index": "1" }}>{title}</span>
                     <span data-value={title} className='sci-fi-screen-title' style={{ "--index": "2" }}>{title}</span>
+                    <svg viewBox='0 0 64 64'>
+                        <path d="M64 0 L48 16 L48 48 L64 64" />
+                    </svg>
                 </div>
                 <div className='sci-fi-screen-login'>
                     <div className='sci-fi-screen-login-field-wrapper'>
@@ -33,7 +39,7 @@ const Screen = (i, title) => (
                     </div>
                     <div className='sci-fi-screen-login-button-wrapper'>
                         <button className='sci-fi-screen-login-login-button'>
-                            Log In
+                            Sign In
                         </button>
                     </div>
                     {/* <div className='sci-fi-screen-login-or-spacer'>
